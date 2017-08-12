@@ -123,7 +123,10 @@ def main():
                         # If the symbol matches the screen, write it to the good file, and print it
                         if price < book*1.5 and eps > divshare*2 and divyield > 3 and 0 < peg < 1.1:
                             good_out.write(j+'\n')
-                            print j
+                            for i in str(j.decode('utf-8')).split(','):
+                                print str(i) 
+                            print '============================================' 
+                            print '\n' 
                 # Just to be nice to the Yahoo API, max 2 requests per second
                 time.sleep(.5)
         except:
@@ -136,6 +139,7 @@ def main():
 if __name__ == '__main__':
     start = datetime.datetime.now()
     print start
+    print '============================================'
     main()
     end = datetime.datetime.now()
     print end
